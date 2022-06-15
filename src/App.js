@@ -1,41 +1,28 @@
-import "./App.css";
-import { useState, useEffect } from "react";
-import Chart from "./components/Chart"
+// import React, { useEffect } from "react";
 
 
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/home";
+import { useState } from "react";
 
 function App() {
-  const [stockData, setData] = useState(null);
-  const getData = async () => {
-    
-    try {
-      let url = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=BYND&outputsize=compact&apikey=PVGXY8RVCAKABW50';
-      const res = await fetch(url);
-      console.log('res:', res)
-      const stockData = await res.json();
-      setData(stockData)
-      console.log('stockdata:', stockData)
-
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  useEffect(() => {
-   getData();
-  },[]);
   
-
-  return (    
-    <div>
-      {stockData ? (
-        <Chart data= {stockData} />
-          ) : (
-           null
-            )}
-    </div> 
-  )
+  const [searchName, setSearchName] = useState("IBM");
+ 
+  return (
+      <Router>
+        <div className="flex-column justify-flex-start min-100-vh">
+          <div className="container">
+            <Routes>
+              <Route exact path="/" element={<Home searchName={searchName} setSearchName= {setSearchName} />} />
+            </Routes>
+          </div>
+        </div>
+      </Router>
+  );
 }
 
 export default App;
+
+
 
