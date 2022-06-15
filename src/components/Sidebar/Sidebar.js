@@ -18,7 +18,6 @@ import { useState } from "react";
 
 const Sidebar = ({ data, setSearchName}) => {
 
-  console.log('setSearchName:', setSearchName)
   const [menuCollapse, setMeunCollapse] = useState(false);
 
   const menuIconClick = () => {

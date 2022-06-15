@@ -14,10 +14,8 @@ function Search({ setSearchName }) {
       ...formState,
       [name]: value,
     });
-    console.log("formState:", formState);
   };
   const handleFormSubmit = async (event) => {
-    console.log("submittttt", formState["search"]);
     event.preventDefault();
 
     try {

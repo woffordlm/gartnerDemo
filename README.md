@@ -22,14 +22,14 @@
 
 ## Explanation of this application's logic
 
-The applications logic runs in the following sequence:
-
 Simplified explanation:
 
 When the user selects a stock symbol, the application makes a request to a server and expects back data for the stock that the user selected. The application then formats this data and displays it in the form of a chart. 
 
+Deeper Explanation:
 
-A Deeper Explanation
+The applications logic runs in the following sequence:
+
 
 1. App.js renders and the app is then routed to the home component
 2. Before the home jsx renders, a fetch request is sent to an endpoint on the gartner-server, the returned data is saved in state. The jsx renders and the data is passed on to the Chart component. 
@@ -42,16 +42,16 @@ A Deeper Explanation
 
 <img src="https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white">
 <img src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white">
-<img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white">
-<img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge">
 <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white">
 <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
+<h3> Highcharts</h3>
 
 <br>
 
 [![made-with-javascript](https://img.shields.io/badge/Made%20with-JavaScript-1f425f.svg)](https://www.javascript.com)
 [![Npm package version](https://badgen.net/npm/v/express)](https://npmjs.com/package/express)
 <img src="https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg">
+
 
 
 
