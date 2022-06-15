@@ -1,16 +1,13 @@
 import Highcharts from "highcharts/highstock";
 import "./index.css";
-// Load Highcharts modules
 import StockChart from "../Stock/Stock";
 
 function Chart({ data }) {
-  console.log("data:", data);
   let nameData = data["Meta Data"];
-  console.log("nameData:", nameData);
   data = data["Time Series (Daily)"];
 
   let ohlc = [],
-    volume = [];
+  volume = [];
 
   for (const key in data) {
     const element = data[key];
@@ -22,14 +19,12 @@ function Chart({ data }) {
       parseFloat(element["3. low"]), // low
       parseFloat(element["4. close"]), // close
     ]);
+
     volume.unshift([
       key, // the date
       parseFloat(element["5. volume"]),
     ]);
   }
-
-  // console.log('ohlc:', ohlc)
-  // console.log('volume:', volume)
 
   const stockOptions = {
     title: {
@@ -61,7 +56,7 @@ function Chart({ data }) {
 
     xAxis: {
       labels: {
-        useHTML: true,
+        // useHTML: true,
       },
       tickInterval: 200,
     },

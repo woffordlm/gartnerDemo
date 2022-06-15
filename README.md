@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+<h1 align="center">Stock Portfolio</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="left">This application displays stock data for 5 different companies. Upon page load, the user will see the default data for IBM. The user can change the chart data by using the select box on the side bar. The user can change the dispaly of the data by manipulating the scroll bar on the bottom of the chart. The user can view all of the metrics by hovering over the graph.</p>
 
-## Available Scripts
+ <img src="./public/photos/screenShot1.jpg">
 
-In the project directory, you can run:
+## Authors
+- [Luke Wofford](https://github.com/woffordlm)
 
-### `npm start`
+## Deployment
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [Github](https://github.com/woffordlm/gartnerDemo)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<img src="./public/photos/screenShot2.jpg">
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<p>After installing npm packages, type npm start and open your browser to localhost:3000.</p>
+<p> This application is meant to be run along side the gartner-demo server. Open up the server and type npm start into the command line.</p>
 
-### `npm run build`
+- [Github/server](https://github.com/woffordlm/gartner-server)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Explanation of this application's logic
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The applications logic runs in the following sequence:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Simplified explanation:
 
-### `npm run eject`
+When the user selects a stock symbol, the application makes a request to a server and expects back data for the stock that the user selected. The application then formats this data and displays it in the form of a chart. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+A Deeper Explanation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. App.js renders and the app is then routed to the home component
+2. Before the home jsx renders, a fetch request is sent to an endpoint on the gartner-server, the returned data is saved in state. The jsx renders and the data is passed on to the Chart component. 
+3. The chart component is where the data in formatted so that it can be used with highcharts. Once fomatted, we save the appropriate parts within the stockOptions variable and this is passed on to the StockChart component. 
+4. The stockChart component imports the HighChartsReact element and all of the data is passed into this element, which results in a chart being rendered on the screen using the appropriate data. 
+5. The sidebar component has the abililty to change state and will trigger a rerender if a new search is made. If a new search is made, the updated state value triggers a new fetch that then results in a new chart. 
+          
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Technologies
 
-## Learn More
+<img src="https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white">
+<img src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white">
+<img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white">
+<img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge">
+<img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white">
+<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[![made-with-javascript](https://img.shields.io/badge/Made%20with-JavaScript-1f425f.svg)](https://www.javascript.com)
+[![Npm package version](https://badgen.net/npm/v/express)](https://npmjs.com/package/express)
+<img src="https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg">
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## License
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)

@@ -2,19 +2,17 @@ import { useState, useEffect } from "react";
 import Chart from "../components/Chart/Chart";
 import Sidebar from "../components/Sidebar/Sidebar";
 
-function Home({setSearchName, searchName}) {
+function Home() {
 
   const [stockData, setData] = useState(null);
+  const [searchName, setSearchName] = useState("IBM");
   
-  console.log("searchName:!!!!!!", searchName);
   const getData = async () => {
     try {
       let url = `/api/stock/${searchName}`;
       const res = await fetch(url);
-      console.log("res:", res);
       const stockData = await res.json();
       setData(stockData);
-      console.log("stockdata:", stockData);
     } catch (error) {
       console.error(error);
     }
@@ -27,7 +25,7 @@ function Home({setSearchName, searchName}) {
   return (
     <div>
       <Sidebar setSearchName={setSearchName} />
-      {stockData ? <Chart data={stockData} /> : null}
+      {!stockData ? null : <Chart data={stockData} />}
     </div>
   );
 }

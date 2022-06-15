@@ -6,6 +6,7 @@ function Search({ setSearchName }) {
   // setSearchName("TSLA")
   const [formState, setFormState] = useState({ search: "" });
   const portfolioList = ["AAPL", "CMG", "BYND", "TSLA", "IBM"];
+  
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -40,9 +41,9 @@ function Search({ setSearchName }) {
         value={formState.search}
         onChange={handleChange}
       >
-        <option value="" disabled selected>Stock</option>
+        <option defaultValue="Stock">Stock</option>
         {portfolioList?.map((data) => (
-          <option  value={data} key={data._id}>
+          <option  value={data} key={data}>
             {data}
           </option>
         ))}
